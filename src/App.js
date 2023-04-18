@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import AddToDoButton from './components/AddToDoButton/AddToDoButton';
+import './components/ToDoList/ToDoList'
+import './components/AddToDoButton/AddToDoButton'
+import { getToDoItemsFromLocalStorage } from './services/getToDoItems';
+import { saveTodoItemsToLocalStorage } from './services/saveToDoItems';
+
+const items = [
+  {
+    id: 1,
+    content: "Test Content",
+    complete: false
+  },
+  {
+    id: 2,
+    content: "Test Content 2",
+    complete: false
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AddToDoButton />
+      <ToDoList toDoItems={items} />
     </div>
   );
 }
